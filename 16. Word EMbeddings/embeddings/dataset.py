@@ -6,10 +6,7 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from torch import Tensor
 
-logging.basicConfig()
-logging.root.setLevel(logging.NOTSET)
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
 
 class W2VCorpus:
     def __init__(
