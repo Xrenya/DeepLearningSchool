@@ -54,3 +54,13 @@ for epoch in range(num_epoch):
 
 writer.flush()
 writer.close()
+
+torch.save(
+    {
+        "model": model.state_dict(),
+        "optimzer": optimzer.state_dict(),
+        "epoch": num_epoch,
+        "loss": avg_loss
+    }, 
+    './output/'
+)
