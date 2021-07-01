@@ -15,13 +15,18 @@ logger.setLevel(logging.DEBUG)
 
 writer = SummaryWriter()
 
+file_path = './output'
+filename = "model_w2v.pt"
+if os.path.isdir(file_path) is False:
+    os.mkdir(file_path)
+
 corp = W2VCorpus("text8")
 pairs = corp.make_positive_pairs()
 train_data = W2VDataset(pairs)
 train_dataloader = DataLoader(train_data, batch_size=1024)
 loaders = {"train": train_dataloader}
 
-evice = torch.device('cuda' if torch.cuda.is_available else 'cpu')
+device = torch.device('cuda' if torch.cuda.is_available else 'cpu')
 logger.info(f"Model will be trained on {device}")
 
 model = W2VModel(voc_size=len(corp.vocabulary), emb_size=300)
@@ -54,7 +59,7 @@ for epoch in range(num_epoch):
 
 writer.flush()
 writer.close()
-
+    
 torch.save(
     {
         "model": model.state_dict(),
@@ -62,5 +67,5 @@ torch.save(
         "epoch": num_epoch,
         "loss": avg_loss
     }, 
-    './output/'
+    os.path.join(file_path, filename)
 )
