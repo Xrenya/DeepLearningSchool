@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from torch import Tensor
-
+import numpy as np
 logger = logging.getLogger(__name__)
 
 class W2VCorpus:
