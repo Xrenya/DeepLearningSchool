@@ -83,7 +83,6 @@ def run(args):
 
 @hydra.main(config_path="conf", config_name='config.yaml')
 def main(args):
-    print(args)
     run(args)
 
 if __name__ == "__main__":
