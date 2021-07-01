@@ -5,9 +5,9 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from torch.utils.tensorboard import SummaryWriter
-from .dataset import W2VCorpus, W2VDataset
-from .model import W2VModel
-
+from dataset import W2VCorpus, W2VDataset
+from model import W2VModel
+import os
 logging.basicConfig()
 logging.root.setLevel(logging.NOTSET)
 logger = logging.getLogger(__name__)
