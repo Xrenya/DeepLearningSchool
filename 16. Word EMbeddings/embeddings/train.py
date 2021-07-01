@@ -1,13 +1,20 @@
+import os
+import logging 
+
 import numpy as np
 from tqdm import tqdm
-import logging 
+
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from torch.utils.tensorboard import SummaryWriter
-from dataset import W2VCorpus, W2VDataset
+
+from omegaconf import DictConfig, OmegaConf
+import hydra
+
 from model import W2VModel
-import os
+from dataset import W2VCorpus, W2VDataset
+
 logging.basicConfig()
 logging.root.setLevel(logging.NOTSET)
 logger = logging.getLogger(__name__)
