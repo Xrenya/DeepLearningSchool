@@ -55,7 +55,7 @@ for epoch in range(num_epoch):
     avg_loss = running_loss / size
     
     writer.add_scalar("Loss/train", avg_loss, epoch)
-    logger.debug(f"Loss: {avg_loss / (epoch + 1)}")
+    logger.debug(f"Loss: {avg_loss}")
 
 writer.flush()
 writer.close()
